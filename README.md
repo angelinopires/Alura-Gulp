@@ -1,4 +1,4 @@
-### How can I run the project?
+## How can I run the project?
 
 
 First you have to download the project:
@@ -23,7 +23,7 @@ npm run gulp
 ```
 
 
-### Plugins Used:
+## Plugins Used:
 
 In thoses classes was approached good pratices and tips that help on performance. Here is which plugins that I used:
 
@@ -32,6 +32,6 @@ In thoses classes was approached good pratices and tips that help on performance
 * Usemin - Concat any numbers of files into only 1, so you application do less requisitions to the server;
 * Uglify - Remove spaces and renames variables to get your JavaScript more efficiency;
 * Cssmin - Does the same as Uglify do;
+* Browser Sync - This plugin watch your browser and update simultaneously when you save your file. Also run as Local Server on every device that have the IP;
 
-
-# Thanks for coming :)
+### Thanks for coming :)
