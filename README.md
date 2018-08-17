@@ -40,8 +40,8 @@ In thoses classes was approached good pratices and tips that help on performance
 * Browser Sync - This plugin watch your browser and update simultaneously when you save your file. Also run as Local Server on every device that have the IP;
 * JsHint - Gives you a report from where and what are going wrong on your code;
 * JsHintStylish - Improve the report of JsHint to give more detailed and lean report;
-* CssLint = Does the same of JsHint;
-* Autoprefixer = This plugin give to your application every parameter needed to be accepted on every browser. You can define which version you'll support, just use the 'browserslist' file;  
-* Less = A compiler for Less;
+* CssLint - Does the same of JsHint;
+* Autoprefixer - This plugin give to your application every parameter needed to be accepted on every browser. You can define which version you'll support, just use the 'browserslist' file;  
+* Less - A compiler for Less;
 
 ### Thanks for coming :)
