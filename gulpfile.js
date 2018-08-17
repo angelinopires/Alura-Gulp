@@ -6,7 +6,12 @@ const gulp = require('gulp'),
       usemin = require('gulp-usemin'),
       uglify = require('gulp-uglify'), 
       cssmin = require('gulp-cssmin'),
-      browserSync = require('browser-sync');
+      browserSync = require('browser-sync'),
+      jshint = require('gulp-jshint'),
+      jshintStylish = require('jshint-stylish'),
+      csslint = require('gulp-csslint'),
+      autoprefixer = require('gulp-autoprefixer'),
+      less = require('gulp-less');
 
 
 gulp.task('default', ['copy'], () => {
@@ -25,16 +30,16 @@ gulp.task('copy', ['clean'], () => {
 
 gulp.task('build-img', () => {
 
-    gulp.src('dist/img/**/*')
+    return gulp.src('src/img/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('usemin', () => {
 
-    gulp.src('dist/**/*.html')
+    return gulp.src('dist/**/*.html')
         .pipe(usemin({
-            'css': [cssmin],
+            'css': [autoprefixer, cssmin],
             'js': [uglify]
         }))
         .pipe(gulp.dest('dist'));
@@ -50,5 +55,24 @@ gulp.task('server', () => {
         }
     });
 
-    gulp.watch('src/**/*').on('change', browserSync.reload);
+    gulp.watch('src/css/*.css').on('change', event => {
+        gulp.src(event.path)
+            .pipe(csslint())
+            .pipe(csslint.reporter());
+    });
+
+    gulp.watch('src/js/*.js').on('change', event => {
+        gulp.src(event.path)
+            .pipe(jshint())
+            .pipe(jshint.reporter(jshintStylish));
+    });
+
+    gulp.watch('src/less/**/*.less').on('change', event => {
+        gulp.src(event.path)
+            .pipe(less().on('error', erro => {
+                console.log('LESS, erro compilação: ' + erro.filename);
+                console.log(erro.message);
+            }))
+            .pipe(gulp.dest('src/css'));
+     });
 });
