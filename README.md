@@ -16,7 +16,7 @@ git clone https://github.com/angelinopires/Alura-Gulp
 Get to the folder of the project and run this commands:
 
 ```
-cd angelinopires/Gulp-Alura/
+cd angelinopires/Alura-Gulp/
 npm install
 ```
 
@@ -27,6 +27,11 @@ Watch your gulpfile.js on our main folder, there's our magic. To notice the new 
 npm run gulp
 ```
 
+To let your server running, use this command: 
+
+```
+npm run gulp server
+```
 
 ## Plugins Used:
 
